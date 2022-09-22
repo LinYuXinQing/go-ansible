@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 
-	"github.com/apenella/go-ansible/pkg/options"
-	"github.com/apenella/go-ansible/pkg/playbook"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/options"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/playbook"
 )
 
 func main() {

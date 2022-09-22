@@ -7,7 +7,7 @@ import (
 	"os/exec"
 	"testing"
 
-	"github.com/apenella/go-ansible/pkg/stdoutcallback/results"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/stdoutcallback/results"
 	errors "github.com/apenella/go-common-utils/error"
 	"github.com/stretchr/testify/assert"
 )

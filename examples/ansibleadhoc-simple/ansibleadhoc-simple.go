@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"github.com/apenella/go-ansible/pkg/adhoc"
-	"github.com/apenella/go-ansible/pkg/options"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/adhoc"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/options"
 )
 
 func main() {

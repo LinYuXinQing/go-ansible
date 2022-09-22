@@ -7,8 +7,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/apenella/go-ansible/pkg/execute"
-	"github.com/apenella/go-ansible/pkg/stdoutcallback"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/execute"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/stdoutcallback"
 	errors "github.com/apenella/go-common-utils/error"
 )
 

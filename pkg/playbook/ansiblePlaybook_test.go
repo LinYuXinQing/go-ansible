@@ -6,9 +6,9 @@ import (
 	execerrors "os/exec"
 	"testing"
 
-	"github.com/apenella/go-ansible/pkg/execute"
-	"github.com/apenella/go-ansible/pkg/options"
-	"github.com/apenella/go-ansible/pkg/stdoutcallback"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/execute"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/options"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/stdoutcallback"
 	errors "github.com/apenella/go-common-utils/error"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"

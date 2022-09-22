@@ -3,7 +3,7 @@ package execute
 import (
 	"context"
 
-	"github.com/apenella/go-ansible/pkg/stdoutcallback"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/stdoutcallback"
 	"github.com/stretchr/testify/mock"
 )
 

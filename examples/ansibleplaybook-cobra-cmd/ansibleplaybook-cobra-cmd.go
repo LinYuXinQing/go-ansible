@@ -10,10 +10,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/apenella/go-ansible/pkg/execute"
-	"github.com/apenella/go-ansible/pkg/options"
-	"github.com/apenella/go-ansible/pkg/playbook"
-	"github.com/apenella/go-ansible/pkg/stdoutcallback/results"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/execute"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/options"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/playbook"
+	"github.com/LinYuXinQing/gooo-ansible/pkg/stdoutcallback/results"
 	errors "github.com/apenella/go-common-utils/error"
 	"github.com/spf13/cobra"
 )
