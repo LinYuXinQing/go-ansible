@@ -1,4 +1,4 @@
-module github.com/apenella/go-ansible
+module github.com/LinYuXinQing/go-ansible
 
 go 1.19
 
