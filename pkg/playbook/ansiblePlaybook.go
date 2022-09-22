@@ -106,7 +106,7 @@ type AnsiblePlaybookCmd struct {
 }
 
 // Run method runs the ansible-playbook
-func (p *AnsiblePlaybookCmd) Run(ctx context.Context) error {
+func (p *AnsiblePlaybookCmd) Run(ctx context.Context, runinsName string) error {
 	var err error
 	var command []string
 	options := []execute.ExecuteOptions{}
@@ -140,7 +140,7 @@ func (p *AnsiblePlaybookCmd) Run(ctx context.Context) error {
 	}
 
 	// Execute the command an return
-	return p.Exec.Execute(ctx, command, stdoutcallback.GetResultsFunc(p.StdoutCallback), options...)
+	return p.Exec.Execute(ctx, command, stdoutcallback.GetResultsFunc(p.StdoutCallback), runinsName, options...)
 }
 
 // Command generate the ansible-playbook command which will be executed

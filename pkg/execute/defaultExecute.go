@@ -10,6 +10,8 @@ import (
 	"sync"
 	"syscall"
 
+	metav1 "code.bondex.com.cn/bondata/component-base/pkg/meta/v1"
+	"code.bondex.com.cn/bondata/internal/taskengine/store"
 	"github.com/LinYuXinQing/gooo-ansible/pkg/stdoutcallback"
 	"github.com/LinYuXinQing/gooo-ansible/pkg/stdoutcallback/results"
 	errors "github.com/apenella/go-common-utils/error"
@@ -132,7 +134,8 @@ func WithEnvVar(key, value string) ExecuteOptions {
 }
 
 // Execute takes a command and args and runs it, streaming output to stdout
-func (e *DefaultExecute) Execute(ctx context.Context, command []string, resultsFunc stdoutcallback.StdoutCallbackResultsFunc, options ...ExecuteOptions) error {
+func (e *DefaultExecute) Execute(ctx context.Context, command []string, resultsFunc stdoutcallback.StdoutCallbackResultsFunc,
+	runinsName string, options ...ExecuteOptions) error {
 
 	var (
 		err                  error
@@ -191,6 +194,8 @@ func (e *DefaultExecute) Execute(ctx context.Context, command []string, resultsF
 	if err != nil {
 		return errors.New("(DefaultExecute::Execute)", "Error starting command", err)
 	}
+	pid := cmd.Process.Pid
+	writePidToEtcd(ctx, runinsName, pid)
 
 	// Waig for stdout and stderr
 	wg.Add(2)
@@ -267,7 +272,17 @@ func (e *DefaultExecute) Execute(ctx context.Context, command []string, resultsF
 
 	return nil
 }
-
+func writePidToEtcd(ctx context.Context, runinsName string, pid int) {
+	riStore := store.Client().RunInstances()
+	runins, err := riStore.Get(ctx, runinsName, metav1.GetOptions{})
+	if err != nil {
+		panic(err)
+	}
+	runins.OsPid = pid
+	if err := riStore.Update(ctx, runins, metav1.UpdateOptions{}); err != nil {
+		return
+	}
+}
 func (e *DefaultExecute) checkCompatibility() {
 	if e.ShowDuration {
 		color.Cyan("[WARNING] ShowDuration argument, on DefaultExecute, is deprecated and will be removed in future versions. Use the ExecutorTimeMeasurement middleware instead.")
