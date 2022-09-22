@@ -1,4 +1,4 @@
-module github.com/LinYuXinQing/goo-ansible
+module github.com/LinYuXinQing/gooo-ansible
 
 go 1.19
 
